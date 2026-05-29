@@ -30,12 +30,38 @@ Engineered with a focus on performance, scalability, and an exceptional user exp
 
 <h3 align="center">🌌 System Showcase</h3>
 
+🟣 **Main Dashboard & Movie Catalog**
+<br>
+
 <img width="1274" height="913" alt="Ekran görüntüsü 2026-05-30 012508" src="https://github.com/user-attachments/assets/0731cd95-a575-4937-94c1-18f5faa79696" />
+
+<br><br>
+
+🟣 **Detailed Movie Profiles & Synopsis**
+<br>
+
 <img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013039" src="https://github.com/user-attachments/assets/9b66ead2-284c-481b-831b-d71794ebb227" />
+
+<br><br>
+
+🟣 **Dynamic Campaigns & Promotions Module**
+<br>
+
 <img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013632" src="https://github.com/user-attachments/assets/46059636-a21e-4a44-baa8-7e10c527415a" />
+
+<br><br>
+
+🟣 **Interactive Seat Selection & Ticketing**
+
+<br>
 <img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013125" src="https://github.com/user-attachments/assets/a8389b8b-7916-497a-946f-16abe8879bcd" />
 
+<br><br>
 
+🟣 **Administrative Control Panel & Real-Time Analytics**
+<br>
+
+<img width="1284" height="911" alt="image" src="https://github.com/user-attachments/assets/10a40cdb-6d47-4d55-96f0-f3a975ebb2d0" />
 
 <br>
 
