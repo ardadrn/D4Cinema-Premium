@@ -22,7 +22,6 @@ Engineered with a focus on performance, scalability, and an exceptional user exp
 To fully explore the management panel, real-time statistics, and ticketing modules, you can authenticate using the pre-configured admin accounts:
 
 * **System Administrator:** `admin@d4cinema.com` | Password: `admin123`
-* **Reviewer / Test Account:** `engin@d4cinema.com` | Password: `engin123`
 
 ---
 *Built with Microsoft Visual Studio, C#, and .NET Framework.
