@@ -1,11 +1,19 @@
 <div align="center">
-  *<img width="589" height="423" alt="logo" src="https://github.com/user-attachments/assets/1a1f36e4-26d9-4db2-a1f5-a5a753d70391" />
+  <img width="589" height="423" alt="logo-removebg-preview" src="https://github.com/user-attachments/assets/6bf8bbf6-fd67-4ec5-8c61-2b0c061c672a" />
   <h1>🎬 D4Cinema Premium</h1>
   <p>A Modern, High-Performance, x64 Architecture Cinema Ticketing Management System</p>
 </div>
 
 ---
+<div align="center">
+  
+  ![C#](https://img.shields.io/badge/C%23-7B2CBF?style=for-the-badge&logo=c-sharp&logoColor=white)
+  ![.NET Framework](https://img.shields.io/badge/.NET-7B2CBF?style=for-the-badge&logo=dotnet&logoColor=white)
+  ![SQLite](https://img.shields.io/badge/SQLite-7B2CBF?style=for-the-badge&logo=sqlite&logoColor=white)
+  ![Windows Forms](https://img.shields.io/badge/WinForms-7B2CBF?style=for-the-badge&logo=windows&logoColor=white)
+  ![60 FPS](https://img.shields.io/badge/UI_Performance-60_FPS-7B2CBF?style=for-the-badge)
 
+</div>
 ### 🚀 Technical Architecture & Features
 Engineered with a focus on performance, scalability, and an exceptional user experience, breaking the boundaries of standard WinForms applications:
 
