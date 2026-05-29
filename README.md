@@ -32,7 +32,7 @@ Engineered with a focus on performance, scalability, and an exceptional user exp
 
 <img width="1274" height="913" alt="Ekran görüntüsü 2026-05-30 012508" src="https://github.com/user-attachments/assets/0731cd95-a575-4937-94c1-18f5faa79696" />
 <img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013039" src="https://github.com/user-attachments/assets/9b66ead2-284c-481b-831b-d71794ebb227" />
-<img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013021" src="https://github.com/user-attachments/assets/2cb142f6-a028-4861-95d1-862f99fa16af" />
+<img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013632" src="https://github.com/user-attachments/assets/46059636-a21e-4a44-baa8-7e10c527415a" />
 <img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013125" src="https://github.com/user-attachments/assets/a8389b8b-7916-497a-946f-16abe8879bcd" />
 
 
