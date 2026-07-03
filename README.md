@@ -72,7 +72,7 @@ Engineered with a focus on performance, scalability, and an exceptional user exp
 To fully explore the management panel, real-time statistics, and ticketing modules, you can authenticate using the pre-configured admin account:
 
 🟣 **System Administrator:** `admin@d4cinema.com` | Password: `admin123`
-
+<br>
 🟣 **System Demo Account:** `demo@d4cinema.com` | Password: `demo123`
 
 <br>
