@@ -12,6 +12,20 @@ namespace D4Cinema
         [STAThread]
         static void Main()
         {
+            try
+            {
+                AppPaths.Initialize();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Uygulama verileri hazırlanamadı:\n" + ex.Message,
+                    "D4Cinema Başlatma Hatası",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SplashForm());

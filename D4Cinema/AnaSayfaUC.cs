@@ -275,8 +275,8 @@ namespace D4Cinema
             PictureBox pb = new PictureBox() { Size = new Size(240, 320), Location = new Point(0, 0), SizeMode = PictureBoxSizeMode.StretchImage, BackColor = Color.FromArgb(28, 28, 34) };
             if (!string.IsNullOrEmpty(afisYolu))
             {
-                string tamYol = Path.Combine(Application.StartupPath, "Afisler", afisYolu);
-                if (File.Exists(tamYol)) pb.Image = Image.FromFile(tamYol);
+                string tamYol = AppPaths.GetAfisPath(afisYolu);
+                if (File.Exists(tamYol)) pb.Image = AppPaths.LoadImageWithoutLock(tamYol);
             }
 
             Label lblAd = new Label() { Text = ad, ForeColor = Color.White, BackColor = Color.FromArgb(28, 28, 34), Font = new Font("Segoe UI", 11, FontStyle.Bold), Location = new Point(15, 325), AutoSize = false, Size = new Size(210, 25), AutoEllipsis = true };
@@ -366,12 +366,11 @@ namespace D4Cinema
 
             PictureBox pbVitrin = new PictureBox() { Dock = DockStyle.Top, Height = 180, BackColor = Color.FromArgb(20, 20, 25), SizeMode = PictureBoxSizeMode.StretchImage };
 
-            string resimKlasoru = Path.Combine(Application.StartupPath, "Kampanyalar");
-            string resimYolu = Path.Combine(resimKlasoru, resimAdi);
+            string resimYolu = AppPaths.GetKampanyaPath(resimAdi);
 
             if (File.Exists(resimYolu))
             {
-                pbVitrin.Image = Image.FromFile(resimYolu);
+                pbVitrin.Image = AppPaths.LoadImageWithoutLock(resimYolu);
             }
             else
             {

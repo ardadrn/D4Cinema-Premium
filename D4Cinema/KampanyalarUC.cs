@@ -118,11 +118,11 @@ namespace D4Cinema
             };
             pnlBanner.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pnlBanner.Width, pnlBanner.Height, 20, 20));
 
-            string bannerYolu = Path.Combine(Application.StartupPath, "Kampanyalar", "halk_gunu.png");
+            string bannerYolu = AppPaths.GetKampanyaPath("halk_gunu.png");
 
             if (File.Exists(bannerYolu))
             {
-                pnlBanner.BackgroundImage = Image.FromFile(bannerYolu);
+                pnlBanner.BackgroundImage = AppPaths.LoadImageWithoutLock(bannerYolu);
                 pnlBanner.BackgroundImageLayout = ImageLayout.Stretch;
 
                 pnlBanner.Paint += (s, e) => {
@@ -234,12 +234,11 @@ namespace D4Cinema
                 SizeMode = PictureBoxSizeMode.StretchImage
             };
 
-            string resimKlasoru = Path.Combine(Application.StartupPath, "Kampanyalar");
-            string resimYolu = Path.Combine(resimKlasoru, resimAdi);
+            string resimYolu = AppPaths.GetKampanyaPath(resimAdi);
 
             if (File.Exists(resimYolu))
             {
-                pbVitrin.Image = Image.FromFile(resimYolu);
+                pbVitrin.Image = AppPaths.LoadImageWithoutLock(resimYolu);
             }
             else
             {

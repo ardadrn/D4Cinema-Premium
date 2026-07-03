@@ -135,17 +135,41 @@ namespace D4Cinema
 
         private void PbAfis_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog() { Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png" };
-            if (ofd.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog ofd = new OpenFileDialog()
             {
-                pbAfis.Image = Image.FromFile(ofd.FileName);
-                string hedefKlasor = Path.Combine(Application.StartupPath, "Afisler");
-                if (!Directory.Exists(hedefKlasor)) Directory.CreateDirectory(hedefKlasor);
+                Filter = "Resim Dosyaları|*.jpg;*.jpeg;*.png"
+            })
+            {
+                if (ofd.ShowDialog() != DialogResult.OK)
+                    return;
 
-                string benzersizAd = Guid.NewGuid().ToString() + Path.GetExtension(ofd.FileName);
-                string hedefYol = Path.Combine(hedefKlasor, benzersizAd);
-                File.Copy(ofd.FileName, hedefYol);
-                secilenAfisYolu = benzersizAd;
+                try
+                {
+                    Directory.CreateDirectory(AppPaths.AfislerFolder);
+
+                    string uzanti = Path.GetExtension(ofd.FileName);
+                    string benzersizAd = Guid.NewGuid().ToString() + uzanti;
+                    string hedefYol = AppPaths.GetAfisPath(benzersizAd);
+
+                    File.Copy(ofd.FileName, hedefYol, false);
+
+                    if (pbAfis.Image != null)
+                    {
+                        pbAfis.Image.Dispose();
+                        pbAfis.Image = null;
+                    }
+
+                    pbAfis.Image = AppPaths.LoadImageWithoutLock(hedefYol);
+                    secilenAfisYolu = benzersizAd;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Afiş kopyalanırken hata oluştu: " + ex.Message,
+                        "Afiş Hatası",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -201,11 +225,25 @@ namespace D4Cinema
                 secilenAfisYolu = row.Cells["AfisYolu"].Value?.ToString() ?? "";
                 if (!string.IsNullOrEmpty(secilenAfisYolu))
                 {
-                    string tamYol = Path.Combine(Application.StartupPath, "Afisler", secilenAfisYolu);
-                    if (File.Exists(tamYol)) pbAfis.Image = Image.FromFile(tamYol);
-                    else pbAfis.Image = null;
+                    string tamYol = AppPaths.GetAfisPath(secilenAfisYolu);
+
+                    if (pbAfis.Image != null)
+                    {
+                        pbAfis.Image.Dispose();
+                        pbAfis.Image = null;
+                    }
+
+                    if (File.Exists(tamYol))
+                        pbAfis.Image = AppPaths.LoadImageWithoutLock(tamYol);
                 }
-                else pbAfis.Image = null;
+                else
+                {
+                    if (pbAfis.Image != null)
+                    {
+                        pbAfis.Image.Dispose();
+                        pbAfis.Image = null;
+                    }
+                }
             }
             catch (Exception ex) { MessageBox.Show("Veri yüklenirken hata: " + ex.Message); }
         }
@@ -266,7 +304,13 @@ namespace D4Cinema
             secilenFilmID = 0;
             txtAd.Clear(); txtTur.Clear(); txtSure.Clear(); txtYonetmen.Clear(); rtxtKonu.Clear();
             cmbDurum.SelectedIndex = 0; dtpVizyon.Value = DateTime.Now;
-            pbAfis.Image = null; secilenAfisYolu = "";
+            if (pbAfis.Image != null)
+            {
+                pbAfis.Image.Dispose();
+                pbAfis.Image = null;
+            }
+
+            secilenAfisYolu = "";
             dgvFilmler.ClearSelection();
         }
     }

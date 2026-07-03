@@ -81,10 +81,11 @@ namespace D4Cinema
                 Cursor = Cursors.Hand
             };
 
-            string logoYolu = System.IO.Path.Combine(Application.StartupPath, "logo.png");
-            if (System.IO.File.Exists(logoYolu)) pbLogo.Image = Image.FromFile(logoYolu);
-            else if (System.IO.File.Exists(System.IO.Path.Combine(Application.StartupPath, "logo.jpg"))) pbLogo.Image = Image.FromFile(System.IO.Path.Combine(Application.StartupPath, "logo.jpg"));
-            else pbLogo.BackColor = Color.FromArgb(30, 30, 34);
+            string logoYolu = AppPaths.LogoPath;
+            if (System.IO.File.Exists(logoYolu))
+                pbLogo.Image = AppPaths.LoadImageWithoutLock(logoYolu);
+            else
+                pbLogo.BackColor = Color.FromArgb(30, 30, 34);
 
             pbLogo.Click += (s, e) => { try { SayfaYukle(new AnaSayfaUC()); } catch { } };
             pnlNavbar.Controls.Add(pbLogo);

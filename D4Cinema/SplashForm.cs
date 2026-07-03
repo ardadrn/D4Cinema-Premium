@@ -53,8 +53,9 @@ namespace D4Cinema
             };
 
             
-            string logoYolu = Path.Combine(Application.StartupPath, "logo.png");
-            if (File.Exists(logoYolu)) pbLogo.Image = Image.FromFile(logoYolu);
+            string logoYolu = AppPaths.LogoPath;
+            if (File.Exists(logoYolu))
+                pbLogo.Image = AppPaths.LoadImageWithoutLock(logoYolu);
             else
             {
                 Label lblYedekLogo = new Label() { Text = "D4 CINEMA", ForeColor = Color.White, Font = new Font("Segoe UI", 28, FontStyle.Bold), AutoSize = true, BackColor = Color.Transparent };

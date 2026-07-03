@@ -66,24 +66,37 @@ namespace D4Cinema
 
         private void ArayuzuCiz(string ad, string tur, string sure, string konu, string yonetmen, string vizyon, string afisYolu, string durum)
         {
-            if (!string.IsNullOrEmpty(afisYolu) && File.Exists(Path.Combine(Application.StartupPath, "Afisler", afisYolu)))
+            string afisTamYolu = AppPaths.GetAfisPath(afisYolu);
+            Image arkaPlanAfisi = AppPaths.LoadImageWithoutLock(afisTamYolu);
+
+            if (arkaPlanAfisi != null)
             {
-                Image orijinalAfis = Image.FromFile(Path.Combine(Application.StartupPath, "Afisler", afisYolu));
-                Bitmap bmp = new Bitmap(1300, 950);
-
-                using (Graphics g = Graphics.FromImage(bmp))
+                using (arkaPlanAfisi)
                 {
-                    Image kucukAfis = new Bitmap(orijinalAfis, new Size(50, 75));
-                    g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                    g.DrawImage(kucukAfis, new Rectangle(0, 0, bmp.Width, bmp.Height));
+                    Bitmap bmp = new Bitmap(1300, 950);
 
-                    using (SolidBrush firca = new SolidBrush(Color.FromArgb(235, 18, 18, 22)))
+                    using (Graphics g = Graphics.FromImage(bmp))
+                    using (Image kucukAfis = new Bitmap(arkaPlanAfisi, new Size(50, 75)))
                     {
-                        g.FillRectangle(firca, new Rectangle(0, 0, bmp.Width, bmp.Height));
+                        g.InterpolationMode =
+                            System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+
+                        g.DrawImage(
+                            kucukAfis,
+                            new Rectangle(0, 0, bmp.Width, bmp.Height));
+
+                        using (SolidBrush firca =
+                            new SolidBrush(Color.FromArgb(235, 18, 18, 22)))
+                        {
+                            g.FillRectangle(
+                                firca,
+                                new Rectangle(0, 0, bmp.Width, bmp.Height));
+                        }
                     }
+
+                    this.BackgroundImage = bmp;
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
                 }
-                this.BackgroundImage = bmp;
-                this.BackgroundImageLayout = ImageLayout.Stretch;
             }
             else
             {
@@ -122,9 +135,9 @@ namespace D4Cinema
             };
             pbAfis.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pbAfis.Width, pbAfis.Height, 20, 20));
 
-            if (!string.IsNullOrEmpty(afisYolu) && File.Exists(Path.Combine(Application.StartupPath, "Afisler", afisYolu)))
+            if (!string.IsNullOrEmpty(afisTamYolu) && File.Exists(afisTamYolu))
             {
-                pbAfis.Image = Image.FromFile(Path.Combine(Application.StartupPath, "Afisler", afisYolu));
+                pbAfis.Image = AppPaths.LoadImageWithoutLock(afisTamYolu);
             }
             this.Controls.Add(pbAfis);
 

@@ -259,8 +259,9 @@ namespace D4Cinema
             PictureBox pb = new PictureBox() { Size = new Size(240, 320), Location = new Point(0, 0), SizeMode = PictureBoxSizeMode.StretchImage, BackColor = Color.FromArgb(28, 28, 34) };
             pb.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, pb.Width, pb.Height + 20, 15, 15));
 
-            if (!string.IsNullOrEmpty(afisYolu) && File.Exists(Path.Combine(Application.StartupPath, "Afisler", afisYolu)))
-                pb.Image = Image.FromFile(Path.Combine(Application.StartupPath, "Afisler", afisYolu));
+            string afisTamYolu = AppPaths.GetAfisPath(afisYolu);
+            if (!string.IsNullOrEmpty(afisTamYolu) && File.Exists(afisTamYolu))
+                pb.Image = AppPaths.LoadImageWithoutLock(afisTamYolu);
             pnl.Controls.Add(pb);
 
             Label lblAd = new Label() { Text = ad, ForeColor = Color.White, BackColor = Color.FromArgb(28, 28, 34), Font = new Font("Segoe UI", 11, FontStyle.Bold), Location = new Point(15, 325), Size = new Size(210, 25), AutoEllipsis = true };

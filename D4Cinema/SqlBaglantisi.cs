@@ -6,7 +6,13 @@ namespace D4Cinema
 {
     public class SqlBaglantisi
     {
-        private string baglantiCumlesi = "Data Source=D4CinemaDB.sqlite;Version=3;";
+        private readonly string baglantiCumlesi;
+
+        public SqlBaglantisi()
+        {
+            AppPaths.Initialize();
+            baglantiCumlesi = $"Data Source={AppPaths.DatabasePath};Version=3;";
+        }
 
         public SQLiteConnection Baglanti()
         {
@@ -20,9 +26,9 @@ namespace D4Cinema
             bool yeniKurulum = false;
 
             
-            if (!File.Exists("D4CinemaDB.sqlite"))
+            if (!File.Exists(AppPaths.DatabasePath))
             {
-                SQLiteConnection.CreateFile("D4CinemaDB.sqlite");
+                SQLiteConnection.CreateFile(AppPaths.DatabasePath);
                 yeniKurulum = true;
             }
 
