@@ -1,64 +1,84 @@
-# D4Cinema Premium
+<div align="center">
 
-D4Cinema Premium is a Windows Forms cinema ticketing and administration application developed with C#, .NET Framework 4.7.2 and SQLite.
+  <img width="589" height="423" alt="logo-removebg-preview (2)" src="https://github.com/user-attachments/assets/5bb6fe1e-3aed-43c8-8d4c-c3b574f519fa" />
 
-## Features
 
-- User registration and login
-- Movie browsing, search and detail pages
-- Cinema and screening selection
-- Interactive seat selection and ticket purchasing
-- Purchased-ticket history
-- Administrator dashboard and statistics
-- Movie, cinema hall and user management
-- Persistent poster and campaign assets
+  <h1>🎬 D4Cinema Premium
+</h1>
+  <p><b>A Modern, High-Performance, x64 Architecture Cinema Ticketing Management System</b></p>
+</div>
 
-## Technologies
+---
 
-- C#
-- .NET Framework 4.7.2
-- Windows Forms
-- SQLite
-- FontAwesome.Sharp
+<br>
 
-## Run the project
+<h3 align="center">🔮 Technical Architecture & Features</h3>
 
-1. Open `D4Cinema.sln` in Visual Studio 2022.
-2. Allow Visual Studio to restore the NuGet packages.
-3. Select `Debug` and `x64`.
-4. Build and run the solution.
+Engineered with a focus on performance, scalability, and an exceptional user experience, breaking the boundaries of standard WinForms applications:
 
-If package restore does not start automatically, right-click the solution and select **Restore NuGet Packages**.
+🟣 **x64 Native Architecture:** Fully optimized for 64-bit processing to ensure robust memory management, particularly when rendering high-resolution media assets and handling heavy database transactions.
 
-## Demo accounts
+🟣 **High-Fidelity UI:** Implemented hardware-accelerated rendering utilizing `WS_EX_COMPOSITED` and `DoubleBuffered` techniques to completely eliminate UI flickering, delivering a seamless and fluid user experience.
 
-| Role | Email | Password |
-|---|---|---|
-| Administrator | `admin@d4cinema.com` | `admin123` |
-| User | `demo@d4cinema.com` | `demo123` |
+🟣 **Microsoft SQL Server Integration:** Utilizes a robust SQL Server database architecture for rapid, reliable data persistence and complex relational query management.
 
-These credentials are only for the demo database included in the repository.
+🟣 **Real-Time Analytics Dashboard:** Features a dynamic management panel executing optimized SQL Scalar queries to instantly reflect active screenings, user metrics, and live ticket sales.
 
-## Application data
+<br>
 
-The repository contains initial data in `D4Cinema/DataSeed`. On first run, the application copies the database, logo, posters and campaign images to:
+---
 
-```text
-%LOCALAPPDATA%\D4Cinema
-```
+<h3 align="center">🌌 System Showcase</h3>
 
-Administrator-uploaded posters are saved under:
+🟣 **Main Dashboard & Movie Catalog**
+<br>
 
-```text
-%LOCALAPPDATA%\D4Cinema\Afisler
-```
+<img width="1274" height="913" alt="Ekran görüntüsü 2026-05-30 012508" src="https://github.com/user-attachments/assets/0731cd95-a575-4937-94c1-18f5faa79696" />
 
-The SQLite database is stored at:
+<br><br>
 
-```text
-%LOCALAPPDATA%\D4Cinema\D4CinemaDB.sqlite
-```
+🟣 **Detailed Movie Profiles & Synopsis**
+<br>
 
-This prevents user-generated data from being deleted by Visual Studio's `Clean` or `Rebuild` operations.
+<img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013039" src="https://github.com/user-attachments/assets/9b66ead2-284c-481b-831b-d71794ebb227" />
 
-To reset the application to the repository's demo data, close the application and delete `%LOCALAPPDATA%\D4Cinema`. The folder will be recreated on the next launch.
+<br><br>
+
+🟣 **Dynamic Campaigns & Promotions Module**
+<br>
+
+<img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013632" src="https://github.com/user-attachments/assets/46059636-a21e-4a44-baa8-7e10c527415a" />
+
+<br><br>
+
+🟣 **Interactive Seat Selection & Ticketing**
+
+<br>
+<img width="1284" height="911" alt="Ekran görüntüsü 2026-05-30 013125" src="https://github.com/user-attachments/assets/a8389b8b-7916-497a-946f-16abe8879bcd" />
+
+<br><br>
+
+🟣 **Administrative Control Panel & Real-Time Analytics**
+<br>
+
+<img width="1284" height="911" alt="image" src="https://github.com/user-attachments/assets/10a40cdb-6d47-4d55-96f0-f3a975ebb2d0" />
+
+<br>
+
+---
+
+<h3 align="center">🔑 Sandbox Testing Credentials</h3>
+
+To fully explore the management panel, real-time statistics, and ticketing modules, you can authenticate using the pre-configured admin account:
+
+🟣 **System Administrator:** `admin@d4cinema.com` | Password: `admin123`
+<br>
+🟣 **System Demo Account:** `demo@d4cinema.com` | Password: `demo123`
+
+<br>
+
+---
+
+<div align="center">
+  <p><i>© 2026 D4Cinema Project. Built with Microsoft Visual Studio, C#, and .NET Framework.</i></p>
+</div>
